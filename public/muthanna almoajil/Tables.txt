@@ -1,0 +1,775 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
+{\fonttbl\f0\fnil\fcharset0 Menlo-Bold;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red29\green53\blue71;\red241\green236\blue247;\red38\green38\blue38;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `CATEGORIZED_ITEM` (\
+  `cat_itemid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  
+\f0\b \cf2 AUTO_INCREMENT
+\f1\b0 \cf4 \
+);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `admin` (\
+  `adminid` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4 ,\
+  `admin_email` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `admin_password` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `admin_phone` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255)\
+);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `advertisement` (\
+  `adid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  
+\f0\b \cf2 AUTO_INCREMENT
+\f1\b0 \cf4 ,\
+  `ad_photo` 
+\f0\b \cf2 LONGBLOB
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `ad_content` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `ad_status` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `ad_expire_date` 
+\f0\b \cf2 DATETIME
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 \
+);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `category` (\
+  `categoryid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4 ,\
+  `categorytext` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 \
+);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `category` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_category__categoryid` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`categoryid`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `CATEGORIZED_ITEM` (`cat_itemid`);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `city` (\
+  `city_name` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4 ,\
+  `country` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `region` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 \
+);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `customer` (\
+  `cus_name` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `cus_email` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `cus_password` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `cus_fullname` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `cus_phone` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `cus_start_date` 
+\f0\b \cf2 DATETIME
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `cus_expire_date` 
+\f0\b \cf2 DATETIME
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `cus_rating` 
+\f0\b \cf2 DECIMAL
+\f1\b0 \cf4 (12, 2),\
+  `cus_status` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `city` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  (`cus_name`, `cus_email`)\
+);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `customer` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_customer__city` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`city`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `city` (`city_name`);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `item` (\
+  `itemid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  
+\f0\b \cf2 AUTO_INCREMENT
+\f1\b0 \cf4 ,\
+  `item_date` 
+\f0\b \cf2 DATETIME
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `customerid_cus_name` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `customerid_cus_email` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `item_description` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `size` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `price` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `categoryid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 \
+);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `item` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_item__categoryid` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`categoryid`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `CATEGORIZED_ITEM` (`cat_itemid`);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `item` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_item__customerid_cus_name__customerid_cus_email` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`customerid_cus_name`, `customerid_cus_email`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `customer` (`cus_name`, `cus_email`);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `item_picture` (\
+  `item_picid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  
+\f0\b \cf2 AUTO_INCREMENT
+\f1\b0 \cf4 ,\
+  `itemid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `item_picture` 
+\f0\b \cf2 LONGBLOB
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 \
+);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `item_picture` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_item_picture__itemid` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`itemid`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `item` (`itemid`);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `message` (\
+  `msgid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  
+\f0\b \cf2 AUTO_INCREMENT
+\f1\b0 \cf4 ,\
+  `msg_from` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `msg_to` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `msg_title` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `msg_text` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `msg_date` 
+\f0\b \cf2 DATETIME
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `msg_status` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `msg_attachment` 
+\f0\b \cf2 LONGBLOB
+\f1\b0 \cf4 \
+);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `promotion` (\
+  `promoid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  
+\f0\b \cf2 AUTO_INCREMENT
+\f1\b0 \cf4 ,\
+  `promo_status` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `promo_expire_date` 
+\f0\b \cf2 DATETIME
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `itemid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 \
+);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `promotion` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_promotion__itemid` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`itemid`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `item` (`itemid`);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `user` (\
+  `userid` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `user_email` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `user_password` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `user_register_date` 
+\f0\b \cf2 DATETIME
+\f1\b0 \cf4 ,\
+  `user_status` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `user_phone` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  (`userid`, `user_email`)\
+);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `REVIEW` (\
+  `ratingid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  
+\f0\b \cf2 AUTO_INCREMENT
+\f1\b0 \cf4 ,\
+  `userid_userid` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `userid_user_email` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `delivery_time` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4 ,\
+  `food_heat` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4 ,\
+  `customer_dealing` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4 ,\
+  `food_taste` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4 ,\
+  `food_price` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4 ,\
+  `customerid_cus_name` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `customerid_cus_email` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `rating_date` 
+\f0\b \cf2 DATETIME
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 \
+);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `REVIEW` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_review__customerid_cus_name__customerid_cus_email` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`customerid_cus_name`, `customerid_cus_email`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `customer` (`cus_name`, `cus_email`);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `REVIEW` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_review__userid_userid__userid_user_email` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`userid_userid`, `userid_user_email`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `user` (`userid`, `user_email`);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `comment` (\
+  `commentid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  
+\f0\b \cf2 AUTO_INCREMENT
+\f1\b0 \cf4 ,\
+  `userid_userid` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `userid_user_email` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `comment_date` 
+\f0\b \cf2 DATETIME
+\f1\b0 \cf4  
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `commentext` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255) 
+\f0\b \cf2 NOT
+\f1\b0 \cf4  
+\f0\b \cf2 NULL
+\f1\b0 \cf4 ,\
+  `customerid_cus_name` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `customerid_cus_email` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `itemid` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4 ,\
+  `comment_status` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255)\
+);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `comment` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_comment__customerid_cus_name__customerid_cus_email` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`customerid_cus_name`, `customerid_cus_email`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `customer` (`cus_name`, `cus_email`);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `comment` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_comment__itemid` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`itemid`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `item` (`itemid`);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `comment` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_comment__userid_userid__userid_user_email` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`userid_userid`, `userid_user_email`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `user` (`userid`, `user_email`);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `user_fav_cus` (\
+  `user_fav_cus_id` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  
+\f0\b \cf2 AUTO_INCREMENT
+\f1\b0 \cf4 ,\
+  `user_favourite_userid` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `user_favourite_user_email` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `favourite_users_cus_name` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `favourite_users_cus_email` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255)\
+);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `user_fav_cus` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_user_fav_cus__favourite_users_cus_name__favourite_users_cus_e` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`favourite_users_cus_name`, `favourite_users_cus_email`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `customer` (`cus_name`, `cus_email`);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `user_fav_cus` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_user_fav_cus__user_favourite_userid__user_favourite_user_emai` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`user_favourite_userid`, `user_favourite_user_email`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `user` (`userid`, `user_email`);\
+\
+
+\f0\b \cf2 CREATE
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `user_fav_items` (\
+  `user_fav_item_id` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4  
+\f0\b \cf2 PRIMARY KEY
+\f1\b0 \cf4  
+\f0\b \cf2 AUTO_INCREMENT
+\f1\b0 \cf4 ,\
+  `favourite_user_userid` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `favourite_user_user_email` 
+\f0\b \cf2 VARCHAR
+\f1\b0 \cf4 (255),\
+  `items` 
+\f0\b \cf2 INTEGER
+\f1\b0 \cf4 \
+);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `user_fav_items` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_user_fav_items__favourite_user_userid__favourite_user_user_em` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`favourite_user_userid`, `favourite_user_user_email`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `user` (`userid`, `user_email`);\
+\
+
+\f0\b \cf2 ALTER
+\f1\b0 \cf4  
+\f0\b \cf2 TABLE
+\f1\b0 \cf4  `user_fav_items` 
+\f0\b \cf2 ADD
+\f1\b0 \cf4  
+\f0\b \cf2 CONSTRAINT
+\f1\b0 \cf4  `fk_user_fav_items__items` 
+\f0\b \cf2 FOREIGN KEY
+\f1\b0 \cf4  (`items`) 
+\f0\b \cf2 REFERENCES
+\f1\b0 \cf4  `item` (`itemid`)}

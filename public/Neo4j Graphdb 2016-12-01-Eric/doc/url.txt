@@ -1,0 +1,9 @@
+https://neo4j.com/developer/guide-data-modeling/
+
+
+
+https://drive.google.com/open?id=0B4mA35E0ReIHM0I1bWlDR2lwQjQ
+
+http://stackoverflow.com/questions/8862845/how-to-model-airport-flight-data-in-a-graph-database-like-neo4j
+
+https://maxdemarzi.com/2015/08/26/modeling-airline-flights-in-neo4j/

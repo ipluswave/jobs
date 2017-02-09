@@ -1,0 +1,6 @@
+http://jira.britanniadevelopment.com:8080/browse/KF-8#GliffyDiagramView
+
+https://k2smartforms
+https://k2smartforms.britanniadevelopment.com/designer
+
+

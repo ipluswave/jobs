@@ -1,0 +1,20 @@
+
+I created a scene that contains mountains, trees, and houses. My mountains, trees, and houses contains triangles which was 
+initialized by buildMountain(), buildTree(), and buildHouse(). Fixed numbers of all 3 should be created. In order to draw the mountains 
+in a distance, the fTransX and fTransY is in range 1.6~2.0, then the trees fTransY is in range 1.6~2.0 with it's fTransX range -1 ~ 1 
+because they shouldn't collide with the mountains. For the houses, fTransX and FtransY are in range -2 ~ 1.2 so they they appear near. All 
+objects' size of mountains, trees, and house are random. nRotateZ is for the objects direction. 
+
+Init vertex arrays for drawing objects. First created buffers for object and bind it to vertexarrays and then you can set any number for 
+however many number of that object you want to draw. For example, #define TreeCount is at 3 for only 3 trees but if I change that to 30 
+I will get 30 trees.
+
+The main drawing function is display. The first 4 lines is for the cameras view.
+Drawing object function is traverse. The difference in my traverse is the render function. 
+I added index parameter for drawing the i-th object. Every drawing functins only calls 
+drawObjectColored function wit their type, vertexarrayobject, and vertices count as parameters.
+And drawObjectColored function select program for that type and bind vertexarrray and draw triangles.
+
+Keyboard buttons 'z' rolls clockwise, 'Z' rolls counterclockwise
+Keyboard buttons 'x' turns right, 'X' turns left
+Keyboard buttons 'c' pitches up, 'C' pitches down

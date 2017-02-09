@@ -1,0 +1,19 @@
+Labels: ZipCodes, Highway, Lane, Transactions, TransactionsDay, Loads, Furniture, Transactions, Customer, Agent, Tracker
+
+
+Relations:
+
+
+Nodes:
+ZipCode:Properties(zipcode: Integer latitude: Float longitude: Float ) Relations( closest_highway)
+HighWay: Properties(number: integer, zipcode:Integer) Relations ( next_highway, linked_zipcode)
+Lane: Properties(landID: String, Profitability, distance, historical price) Relations( o_zip, d_zip, )
+Transaction: Properties(transactionID: String date: Date) Relations(Seller, lane, loads, Tracker, agent)
+Seller: Properties(name: String phoneNumber: String email: String address: String gender: boolean) Relations()
+Tracker: Properties(TrackerSN: String TrackerType: String fuelrpm: Float FuelCost: Float) Relations(TrackerOwner)
+TrackerOwner: properties(Name: String Email: String PhoneNumber: String Address: String)
+Agent: Properties(Name: string) 
+Loads: Properties(Type: Boolean) Relation(furniture)
+Furniture: Properties(Type: String Quantity: Float Coast: Float) 
+
+
