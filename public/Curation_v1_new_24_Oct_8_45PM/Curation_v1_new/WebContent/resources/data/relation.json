@@ -1,0 +1,6 @@
+[
+	{"id":1,"relationName":"IS_SUB_CLASS"},
+	{"id":2,"relationName":"IS_NOT_SUB_CLASS"},
+	{"id":3,"relationName":"IS_SUPER_CLASS"},
+	{"id":4,"relationName":"IS_NOT_SUPER_CLASS"}
+]

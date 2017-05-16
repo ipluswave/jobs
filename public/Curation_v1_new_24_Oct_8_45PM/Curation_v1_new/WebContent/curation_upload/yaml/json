@@ -1,0 +1,71 @@
+{
+    "OutputParameter": [
+        {
+            "name": "Recency",
+            "type": "String"
+        },
+        {
+            "name": "Frequency",
+            "type": "String"
+        }
+    ],
+    "RedShiftConfiguration": {
+        "password": "******",
+        "driver": "# Redshift interface presented here",
+        "user": "root",
+        "url": "# URL here"
+    },
+    "RedShiftTable": {
+        "quoteChar": "'",
+        "delimiter": ",",
+        "csvFields": null,
+        "header": true,
+        "tableName": "SalesAnalysis"
+    },
+    "Algorithm": [
+        {
+            "Type": "Sales",
+            "AlgorithmID": 234,
+            "Output": "RFM",
+            "OutputUI": 123
+        }
+    ],
+    "InputParameter": [
+        {
+            "mapping": {
+                "LocalParameter": "TransactionDate",
+                "RedshifttableName": "SalesAnalysis",
+                "type": "Date"
+            },
+            "Generic": "Date",
+            "type": "Date"
+        },
+        {
+            "mapping": {
+                "LocalParameter": "Amount",
+                "RedshifttableName": "SalesAnalysis",
+                "type": "text"
+            },
+            "Generic": "Total",
+            "type": "String"
+        },
+        {
+            "mapping": {
+                "LocalParameter": "CustomerID",
+                "RedshifttableName": "SalesAnalysis",
+                "type": "text"
+            },
+            "Generic": "CustomerID",
+            "type": "String"
+        },
+        {
+            "mapping": {
+                "LocalParameter": "ProductID",
+                "RedshifttableName": "SalesAnalysis",
+                "type": "text"
+            },
+            "Generic": "ProductID",
+            "type": "String"
+        }
+    ]
+}

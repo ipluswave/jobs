@@ -1,0 +1,69 @@
+--- 
+- !java.util.HashMap
+  OutputParameter: 
+    - !java.util.HashMap
+      name: Recency
+      type: String
+    - !java.util.HashMap
+      name: Frequency
+      type: String
+  RedShiftTable: 
+    - !java.util.HashMap
+      delimiter: ","
+      quoteChar: "'"
+      tableName: public.cyclegearcustomers
+      csvFields: ~
+      header: &7 true
+    - !java.util.HashMap
+      delimiter: ","
+      quoteChar: "'"
+      tableName: public.cyclegeartransaction
+      csvFields: ~
+      header: *7
+  RedShiftConfiguration: !java.util.HashMap
+    driver: com.amazon.redshift.jdbc41.Driver
+    user: admin
+    password: Pragmas0ft
+    url: "jdbc:redshift://mall-cloud-analyzer.cyaf02s2fx7z.us-east-1.redshift.amazonaws.com:5439/cyclegear"
+  Algorithm: 
+    - !java.util.HashMap
+      AlgorithmID: !java.lang.Long 234
+      OutputUI: !java.lang.Long 123
+      Type: Sales
+      Output: RFM
+  InputParameter: 
+    - !java.util.HashMap
+      Generic: Date
+      mapping: !java.util.HashMap
+        RedshifttableName: public.cyclegeartransaction
+        LocalParameter: transactionid
+        type: Integer
+      type: Integer
+    - !java.util.HashMap
+      Generic: Total
+      mapping: !java.util.HashMap
+        RedshifttableName: public.cyclegeartransaction
+        LocalParameter: mallcloudid
+        type: String
+      type: String
+    - !java.util.HashMap
+      Generic: CustomerID
+      mapping: !java.util.HashMap
+        RedshifttableName: public.cyclegearcustomers
+        LocalParameter: mallcloudid
+        type: String
+      type: String
+    - !java.util.HashMap
+      Generic: ProductID
+      mapping: !java.util.HashMap
+        RedshifttableName: public.cyclegearcustomers
+        LocalParameter: ltdcontributionmargin
+        type: String
+      type: String
+    - !java.util.HashMap
+      Generic: ProductID
+      mapping: !java.util.HashMap
+        RedshifttableName: public.cyclegeartransaction
+        LocalParameter: purchasetotal
+        type: String
+      type: String

@@ -1,0 +1,65 @@
+.my-icon {
+    position: relative;
+}
+.my-icon > i {
+    position: absolute;
+    display: inline-block;
+    width: 1.7727272727272725em;
+    height: 0.8181818181818181em;
+    background-color: #11aa2d;
+    left: 0.8181818181818181em;
+    top: 0.13636363636363635em;
+}
+.my-icon > i+i {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 0.40909090909090906em solid #11aa19;
+    border-left: 0.40909090909090906em solid transparent;
+    left: 0em;
+    top: 0.13636363636363635em;
+}
+.my-icon > i+i+i {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 0.40909090909090906em solid transparent;
+    border-left: 0.40909090909090906em solid #8bd32c;
+    left: 2.590909090909091em;
+    top: 0.13636363636363635em;
+}
+.my-icon > i+i+i+i {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 0.40909090909090906em solid #1142AA;
+    border-left: 0.40909090909090906em solid transparent;
+    left: 0em;
+    top: 0em;
+}
+.my-icon > i+i+i+i+i {
+    position: absolute;
+    display: inline-block;
+    width: 1.7727272727272725em;
+    height: 0.8181818181818181em;
+    background-color: #1142AA;
+    left: 0.8181818181818181em;
+    top: 0em;
+}
+.my-icon > i+i+i+i+i+i {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 0.40909090909090906em solid transparent;
+    border-left: 0.40909090909090906em solid #1142AA;
+    left: 2.590909090909091em;
+    top: 0em;
+}

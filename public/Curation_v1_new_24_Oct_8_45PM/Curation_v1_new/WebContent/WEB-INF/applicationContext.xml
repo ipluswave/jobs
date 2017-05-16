@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:neo4j="http://www.springframework.org/schema/data/neo4j"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/data/neo4j http://www.springframework.org/schema/data/neo4j/spring-neo4j-3.3.xsd 
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.neo4j">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <context:spring-configured/>
+
+    <neo4j:repositories base-package="com.neo4j.repository"/>
+
+    <tx:annotation-driven mode="proxy"/>
+
+	<!-- <neo4j:config storeDirectory="C:\TPNeo4jDB" base-package="com.neo4j.model"/> -->
+	
+	<neo4j:config graphDatabaseService="graphDatabaseService" base-package="com.neo4j.model"/>
+    <!-- <bean id="graphDatabaseService" class="org.springframework.data.neo4j.rest.SpringRestGraphDatabase">
+        <constructor-arg value="http://localhost:7474/db/data"/>
+    </bean> -->
+    
+    <bean id="graphDatabaseService" class="org.springframework.data.neo4j.rest.SpringRestGraphDatabase">
+	    <constructor-arg value="http://localhost:7474/db/data/" index="0"/>
+		<!-- for running against a server requiring authentication -->
+	    <constructor-arg value="neo4j" index="1"/>
+	    <constructor-arg value="admin" index="2"/>
+	
+	</bean>
+	
+    <!-- <beans profile="default">
+        <neo4j:config storeDirectory="target/data/graph.db" base-package="com.neo4j.model"/>
+    </beans> -->
+    <!-- <beans profile="rest">
+        <neo4j:config graphDatabaseService="graphDatabaseService" base-package="com.neo4j.model"/>
+        <bean id="graphDatabaseService" class="org.springframework.data.neo4j.rest.SpringRestGraphDatabase">
+            <constructor-arg value="http://localhost:7474/db/data"/>
+        </bean>
+    </beans> -->
+</beans>

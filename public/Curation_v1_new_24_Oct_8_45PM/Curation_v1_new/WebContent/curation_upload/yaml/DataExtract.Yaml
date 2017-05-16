@@ -1,0 +1,59 @@
+tables:
+  - sourceTable: Transactions
+    clientId: CycleGear
+    header: true
+    delimiter: ","
+    quoteChar: "'"
+#    quote: '\'
+    csvFields:
+      - name: Transaction_ID
+        type: Number
+        mapping:
+            alias: TransactionID
+            type: Integer
+      - name: Date
+        type: String
+        mapping:
+            alias: TransactionDate
+            type: Date
+      - name: ShopperID
+        type: String
+        mapping:
+            alias: CustomerID
+            type: Char
+      - name: Amount
+        type: Number
+        mapping:
+            alias: TransactionAmount
+            type: Integer
+      - name: ProductID
+        type: Number
+        mapping:
+            alias: ProductID
+            type: Integer
+      - name: ProductGroup
+        type: String
+        mapping:
+            alias: ProductGroup
+            type: String
+      - name: RetailPrice
+        type: Number
+        mapping:
+            alias: ProductGroup
+            type: String
+      - name: ItemNumber
+        type: Number
+        mapping:
+            alias: NumberOfItems
+            type: Integer
+      - name: Online/Instore
+        type: String
+        mapping:
+            alias: Channel
+            type: String
+      - name: Manufacturer
+        type: String
+        mapping:
+            alias: Manufacturer
+            type: String
+     
